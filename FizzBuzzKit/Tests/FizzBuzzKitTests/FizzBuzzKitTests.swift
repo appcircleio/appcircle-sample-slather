@@ -45,7 +45,14 @@ final class FizzBuzzKitTests: XCTestCase {
         XCTAssertEqual(result, "Potato")
         result =  fbkit.handle(number: 11)
         XCTAssertEqual(result, "Tomato")
+    }
 
+    func testComplexRules() throws {
+        let fbkit = FizzBuzzKit(rules: [({$0 %  2 == 0}, "Even"), ({$0 %  2 == 1}, "Odd")])
+        var result =  fbkit.handle(number: 3)
+        XCTAssertEqual(result, "Odd")
+        result =  fbkit.handle(number: 8)
+        XCTAssertEqual(result, "Even")
     }
 
 }
