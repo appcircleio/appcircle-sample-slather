@@ -39,7 +39,7 @@ class AppcircleUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testFizz() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
@@ -47,19 +47,38 @@ class AppcircleUITests: XCTestCase {
         let tablesQuery = XCUIApplication().tables
         let numberCell = tablesQuery.textFields["Enter a number"]
         let resultText = tablesQuery.staticTexts.element(boundBy: 1)
-
+        
         numberCell.tap()
         numberCell.typeText("3")
         XCTAssertEqual(resultText.label,"Fizz")
+    }
+    
+    func testBuzz() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let tablesQuery = XCUIApplication().tables
+        let numberCell = tablesQuery.textFields["Enter a number"]
+        let resultText = tablesQuery.staticTexts.element(boundBy: 1)
         
         numberCell.tap()
         numberCell.clearAndEnterText("15")
         XCTAssertEqual(resultText.label,"FizzBuzz")
+    }
+    
+    func testOthers() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let tablesQuery = XCUIApplication().tables
+        let numberCell = tablesQuery.textFields["Enter a number"]
+        let resultText = tablesQuery.staticTexts.element(boundBy: 1)
         
         numberCell.tap()
         numberCell.clearAndEnterText("4")
         XCTAssertEqual(resultText.label,"4")
-
     }
 
     func testLaunchPerformance() throws {
