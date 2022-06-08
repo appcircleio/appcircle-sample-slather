@@ -15,6 +15,7 @@ struct FizzBuzzView: View {
         HStack {
             Text("Result: ")
             Text(fbkit.handle(number: number))
+                .accessibilityIdentifier("result")
         }
     }
 }

@@ -44,10 +44,8 @@ class AppcircleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let tablesQuery = XCUIApplication().tables
-        let numberCell = tablesQuery.textFields["Enter a number"]
-        let resultText = tablesQuery.staticTexts.element(boundBy: 1)
-        
+        let numberCell = app.textFields["Enter a number"]
+        let resultText = app.staticTexts["result"]
         numberCell.tap()
         numberCell.typeText("3")
         XCTAssertEqual(resultText.label,"Fizz")
@@ -58,10 +56,9 @@ class AppcircleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let tablesQuery = XCUIApplication().tables
-        let numberCell = tablesQuery.textFields["Enter a number"]
-        let resultText = tablesQuery.staticTexts.element(boundBy: 1)
-        
+        let numberCell = app.textFields["Enter a number"]
+        let resultText = app.staticTexts["result"]
+
         numberCell.tap()
         numberCell.clearAndEnterText("15")
         XCTAssertEqual(resultText.label,"FizzBuzz")
@@ -72,10 +69,9 @@ class AppcircleUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        let tablesQuery = XCUIApplication().tables
-        let numberCell = tablesQuery.textFields["Enter a number"]
-        let resultText = tablesQuery.staticTexts.element(boundBy: 1)
-        
+        let numberCell = app.textFields["Enter a number"]
+        let resultText = app.staticTexts["result"]
+
         numberCell.tap()
         numberCell.clearAndEnterText("4")
         XCTAssertEqual(resultText.label,"4")
