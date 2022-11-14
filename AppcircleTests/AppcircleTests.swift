@@ -18,11 +18,18 @@ class AppcircleTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testSkip() throws {
-        let isAppcircle = ProcessInfo.processInfo.environment["AC_APPCIRCLE"]
-        try XCTSkipIf(isAppcircle == "true", "Skip this test on Appcircle")
-        XCTAssertTrue(true,"Local test")
+    func testSkipiPhone8() throws {
+        let simulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] ?? "No Name"
+        try XCTSkipIf(simulator.contains("iPhone 8"), "Skip this test on iPhone 8*")
+        XCTAssertTrue(true,"iPhone 8 Test")
     }
+    
+    func testSkipiPhone14() throws {
+        let simulator = ProcessInfo.processInfo.environment["SIMULATOR_DEVICE_NAME"] ?? "No Name"
+        try XCTSkipIf(simulator.contains("iPhone 14"), "Skip this test on iPhone 14*")
+        XCTAssertTrue(true,"iPhone 14 Test")
+    }
+
     
     func testExpectedFailure() throws {
         let thingThatFails: Bool = false
