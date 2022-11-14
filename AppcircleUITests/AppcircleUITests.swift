@@ -76,5 +76,24 @@ class AppcircleUITests: XCTestCase {
         numberCell.clearAndEnterText("4")
         XCTAssertEqual(resultText.label,"4")
     }
+    
+    func testDataAttachment() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let text = "Appcircle"
+        let attachment = XCTAttachment(data: Data(text.utf8))
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+    
+    func testJsonAttachment() throws {
+        let app = XCUIApplication()
+        app.launch()
+        let json = "{\"hello\":\"world\"}"
+        let attachment = XCTAttachment(data: Data(json.utf8),uniformTypeIdentifier: "public.json")
+        attachment.lifetime = .keepAlways
+        add(attachment)
+    }
+
 
 }
