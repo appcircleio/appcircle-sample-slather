@@ -77,6 +77,19 @@ class AppcircleUITests: XCTestCase {
         XCTAssertEqual(resultText.label,"4")
     }
     
+    func testFail() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        let numberCell = app.textFields["Enter a number"]
+        let resultText = app.staticTexts["result"]
+
+        numberCell.tap()
+        numberCell.clearAndEnterText("7")
+        XCTAssertEqual(resultText.label,"Fizz")
+    }
+
     func testDataAttachment() throws {
         let app = XCUIApplication()
         app.launch()
